@@ -5,7 +5,7 @@
 - **RecyclerView** for dynamic list display
 - **OMDb API** (https://www.omdbapi.com/) for movie data, including titles, posters, IMDb ratings, and descriptions.
 
-NOTE
+**NOTE:**
 This project requires a valid OMDb API key to fetch movie data. The API key included in this project is valid for **72 hours**. After this period, you will need to sign up for a new key from OMDb [here](https://www.omdbapi.com/apikey.aspx) and replace the existing key in the code.
 .
 
