@@ -3,7 +3,8 @@ package com.example.myapplication
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-// RetrofitClient არის ობიექტი, რომელიც უზრუნველყოფს Retrofit-ის ერთ და ერთადერთი (singleton) instance-ს
+//როგორ მუშაობს Retrofit Client? როდესაც საჭიროა API-დან მონაცემების მიღება (მაგ. ფილმების ინფორმაცია OMDb API-დან), Retrofit Client გაგზავნის HTTP მოთხოვნას.
+//მიღებული JSON მონაცემები კონვერტირდება Kotlin ობიექტებად, რათა ისინი მოხერხებულად გავუშვათ სხვა კლასებში.
 object RetrofitClient {
 
     // instance შეიცავს Retrofit-ის ობიექტს, რომელიც ჩვენთვის API-სთან კომუნიკაციას მოაგვარებს
