@@ -18,8 +18,8 @@ class MainActivity : AppCompatActivity() {
 
     // ფილმების IMDB კოდების სია - ამ კოდების მიხედვით მოგვაქვს ინფორმაცია ინტერნეტიდან
     private val movieIds = listOf(
-        "tt0499549",   // Avatar
-        "tt10872600",
+        "tt0499549",   
+        "tt1087260",
         "tt0120338",
         "tt0468569",
         "tt1375666",
