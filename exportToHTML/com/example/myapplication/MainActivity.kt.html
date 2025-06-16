@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>MainActivity.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #7a7e85;}
+.s4 { color: #6aab73;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+MainActivity.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com</span><span class="s2">.</span><span class="s1">example</span><span class="s2">.</span><span class="s1">myapplication</span>
+
+<span class="s1">import android</span><span class="s2">.</span><span class="s1">os</span><span class="s2">.</span><span class="s1">Bundle</span>
+<span class="s1">import android</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">Log</span>
+<span class="s1">import androidx</span><span class="s2">.</span><span class="s1">appcompat</span><span class="s2">.</span><span class="s1">app</span><span class="s2">.</span><span class="s1">AppCompatActivity</span>
+<span class="s1">import androidx</span><span class="s2">.</span><span class="s1">recyclerview</span><span class="s2">.</span><span class="s1">widget</span><span class="s2">.</span><span class="s1">LinearLayoutManager</span>
+<span class="s1">import androidx</span><span class="s2">.</span><span class="s1">recyclerview</span><span class="s2">.</span><span class="s1">widget</span><span class="s2">.</span><span class="s1">RecyclerView</span>
+<span class="s1">import retrofit2</span><span class="s2">.</span><span class="s1">Call</span>
+<span class="s1">import retrofit2</span><span class="s2">.</span><span class="s1">Callback</span>
+<span class="s1">import retrofit2</span><span class="s2">.</span><span class="s1">Response</span>
+
+<span class="s0">class </span><span class="s1">MainActivity : AppCompatActivity</span><span class="s2">() {</span>
+
+    <span class="s1">private lateinit </span><span class="s0">var </span><span class="s1">recyclerView: RecyclerView</span>
+
+    <span class="s3">// ფილმების IMDB კოდების სია</span>
+    <span class="s1">private </span><span class="s0">val </span><span class="s1">movieIds </span><span class="s2">= </span><span class="s1">listOf</span><span class="s2">(</span>
+        <span class="s4">&quot;tt0499549&quot;</span><span class="s2">,</span>
+        <span class="s4">&quot;tt1087260&quot;</span><span class="s2">,</span>
+        <span class="s4">&quot;tt0120338&quot;</span><span class="s2">,  </span>
+        <span class="s4">&quot;tt0468569&quot;</span><span class="s2">,</span>
+        <span class="s4">&quot;tt1375666&quot;</span><span class="s2">,</span>
+        <span class="s4">&quot;tt0371746&quot;</span><span class="s2">,</span>
+        <span class="s4">&quot;tt3581920&quot;</span><span class="s2">,</span>
+        <span class="s4">&quot;tt26743210&quot;</span><span class="s2">,</span>
+        <span class="s4">&quot;tt4154796&quot;</span><span class="s2">,</span>
+        <span class="s4">&quot;tt0388629&quot;</span><span class="s2">,</span>
+        <span class="s4">&quot;tt1211837&quot;</span>
+    <span class="s2">)</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onCreate</span><span class="s2">(</span><span class="s1">savedInstanceState: Bundle?</span><span class="s2">) {</span>
+        <span class="s0">super</span><span class="s2">.</span><span class="s1">onCreate</span><span class="s2">(</span><span class="s1">savedInstanceState</span><span class="s2">)</span>
+        <span class="s1">setContentView</span><span class="s2">(</span><span class="s1">R</span><span class="s2">.</span><span class="s1">layout</span><span class="s2">.</span><span class="s1">activity_main</span><span class="s2">)</span>
+
+        <span class="s1">recyclerView </span><span class="s2">= </span><span class="s1">findViewById</span><span class="s2">(</span><span class="s1">R</span><span class="s2">.</span><span class="s1">id</span><span class="s2">.</span><span class="s1">recycler_view</span><span class="s2">)</span>
+        <span class="s1">recyclerView</span><span class="s2">.</span><span class="s1">layoutManager </span><span class="s2">= </span><span class="s1">LinearLayoutManager</span><span class="s2">(</span><span class="s0">this</span><span class="s2">)</span>
+
+        <span class="s0">val </span><span class="s1">movies </span><span class="s2">= </span><span class="s1">mutableListOf</span><span class="s2">&lt;</span><span class="s1">Movie</span><span class="s2">&gt;()</span>
+
+        <span class="s0">for </span><span class="s2">(</span><span class="s1">id </span><span class="s0">in </span><span class="s1">movieIds</span><span class="s2">) {</span>
+            <span class="s1">RetrofitClient</span><span class="s2">.</span><span class="s1">instance</span><span class="s2">.</span><span class="s1">getMovieById</span><span class="s2">(</span><span class="s1">id</span><span class="s2">).</span><span class="s1">enqueue</span><span class="s2">(</span><span class="s0">object </span><span class="s1">: Callback</span><span class="s2">&lt;</span><span class="s1">Movie</span><span class="s2">&gt; {</span>
+                <span class="s1">override </span><span class="s0">fun </span><span class="s1">onResponse</span><span class="s2">(</span><span class="s1">call: Call</span><span class="s2">&lt;</span><span class="s1">Movie</span><span class="s2">&gt;, </span><span class="s1">response: Response</span><span class="s2">&lt;</span><span class="s1">Movie</span><span class="s2">&gt;) {</span>
+                    <span class="s1">response</span><span class="s2">.</span><span class="s1">body</span><span class="s2">()</span><span class="s1">?</span><span class="s2">.</span><span class="s1">let </span><span class="s2">{</span>
+                        <span class="s3">// ვამოწმებთ რომ ფილმი არ იყოს ეპიზოდი (მაგ. &quot;Episode #1.70&quot;)</span>
+                        <span class="s0">if </span><span class="s2">(!</span><span class="s1">it</span><span class="s2">.</span><span class="s1">Title</span><span class="s2">.</span><span class="s1">contains</span><span class="s2">(</span><span class="s4">&quot;Episode #&quot;</span><span class="s2">)) {</span>
+                            <span class="s1">movies</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">it</span><span class="s2">)</span>
+                            <span class="s1">recyclerView</span><span class="s2">.</span><span class="s1">adapter </span><span class="s2">= </span><span class="s1">MovieAdapter</span><span class="s2">(</span><span class="s0">this</span><span class="s1">@MainActivity</span><span class="s2">, </span><span class="s1">movies</span><span class="s2">)</span>
+                        <span class="s2">}</span>
+                    <span class="s2">}</span>
+                <span class="s2">}</span>
+
+                <span class="s1">override </span><span class="s0">fun </span><span class="s1">onFailure</span><span class="s2">(</span><span class="s1">call: Call</span><span class="s2">&lt;</span><span class="s1">Movie</span><span class="s2">&gt;, </span><span class="s1">t: Throwable</span><span class="s2">) {</span>
+                    <span class="s1">Log</span><span class="s2">.</span><span class="s1">e</span><span class="s2">(</span><span class="s4">&quot;API_ERROR&quot;</span><span class="s2">, </span><span class="s1">t</span><span class="s2">.</span><span class="s1">message ?: </span><span class="s4">&quot;Unknown error&quot;</span><span class="s2">)</span>
+                <span class="s2">}</span>
+            <span class="s2">})</span>
+        <span class="s2">}</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+</pre>
+</body>
+</html>

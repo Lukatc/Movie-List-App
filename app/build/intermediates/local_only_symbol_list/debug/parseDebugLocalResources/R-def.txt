@@ -1,0 +1,27 @@
+R_DEF: Internal format may change without notice
+local
+color black
+color white
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+drawable option
+drawable playvideo
+id descriptionText
+id img
+id name
+id option
+id playVideo
+id posterImage
+id ratingText
+id recycler_view
+id titleText
+layout activity_main
+layout activity_movie_detail
+layout list_item
+mipmap ic_launcher
+mipmap ic_launcher_round
+string app_name
+style Base.Theme.MyApplication
+style Theme.MyApplication
+xml backup_rules
+xml data_extraction_rules
