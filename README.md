@@ -2,6 +2,14 @@
 
 An Android app that shows a list of popular movies. You can see movie details like story, rating, and pictures.
 
+## Screenshots
+
+### Movie List Screen
+<img src="Screenshot%202025-06-16%20152136.png" alt="Movie List" width="300">
+
+### Movie Detail Screen
+<img src="Screenshot%202025-06-16%20152149.png" alt="Movie Detail" width="300">
+
 ## Features
 
 - **Movie List**: See many movies in a simple list
