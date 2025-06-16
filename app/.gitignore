@@ -1,0 +1,9 @@
+# Ignore build folders
+/build/
+/app/build/
+
+# Other common ignores for Android projects
+*.iml
+.gradle/
+/local.properties
+/.idea/
