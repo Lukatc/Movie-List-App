@@ -64,7 +64,7 @@ All movie information comes from OMDb API (a free movie database).
 
 **Movie**
 - Holds information about one movie
-- Has movie name, year, rating, story, and picture
+- Has movie name, rating, story, and picture
 
 **MovieAdapter**
 - Shows movies in the list
