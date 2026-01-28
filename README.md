@@ -1,6 +1,36 @@
-# Movie App
+# Movie App 🎬
 
 An Android app that shows a list of popular movies. You can see movie details like story, rating, and pictures.
+
+---
+
+## 🎯 Project Overview (Academic Requirements)
+
+### What does this project do?
+Movie App is a dynamic application that connects to the OMDb API to retrieve movie metadata. Users can browse a curated list of films and transition to a detailed view to read synopses, check ratings, and view high-quality posters. It demonstrates how to handle asynchronous network calls and display dynamic data in a mobile UI.
+
+### Technologies Used
+* **Kotlin:** Primary programming language.
+* **Retrofit:** For handling type-safe HTTP requests to the OMDb API.
+* **Glide:** An efficient image loading and caching library.
+* **RecyclerView:** For smooth, memory-efficient list scrolling.
+* **OMDb API:** Our primary data source for movie information.
+
+### Future Improvements
+1. **Search Functionality:** Implementing a search bar to allow users to query any movie title from the OMDb database.
+2. **Local Watchlist:** Integrating a Room database to let users save movies to their personal "To-Watch" list offline.
+3. **Advanced Filtering:** Adding the ability to filter movies by genre or release year.
+
+---
+
+## 🤖 AI Implementation & Experimentation
+For this project, I utilized AI tools (Gemini/ChatGPT) as a collaborative assistant during the development process:
+
+* **API Integration:** I leveraged AI to help generate the `RetrofitClient` boilerplate and to correctly map the OMDb JSON response to Kotlin Data Classes.
+* **Prompt Engineering for Debugging:** When I encountered issues with data parsing, I used specific prompts to help debug the network layer.
+* **AI-Generated Documentation:** This technical documentation was structured with AI assistance to ensure a professional tone and clear hierarchy.
+
+---
 
 ## Screenshots
 
@@ -12,11 +42,11 @@ An Android app that shows a list of popular movies. You can see movie details li
 
 ## Features
 
-- **Movie List**: See many movies in a simple list
-- **Movie Details**: Click on a movie to see more information
-- **Internet Data**: Gets fresh movie information from the internet
-- **Easy to Use**: Smooth scrolling and fast loading
-- **Movie Pictures**: Shows movie posters and images
+- **Movie List**: See many movies in a simple list.
+- **Movie Details**: Click on a movie to see more information.
+- **Internet Data**: Gets fresh movie information from the internet.
+- **Easy to Use**: Smooth scrolling and fast loading.
+- **Movie Pictures**: Shows movie posters and images.
 
 ## 🛠 Tech Stack
 
