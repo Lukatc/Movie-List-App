@@ -80,7 +80,7 @@ All movie information comes from OMDb API (a free movie database).
 
 ## 📄 Terms of Use
 
-- This app gets movie information from OMDb API, so you must follow OMDb's [rules](https://www.omdbapi.com/terms)
+- This app gets movie information from OMDb API, so you must follow OMDb's rules.
 - The app uses **internet data** to get fresh movie information
 
 ## How the App Works
